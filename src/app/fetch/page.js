@@ -27,11 +27,11 @@ export default function Page() {
 
   }, []);
 
-  const fetchApi = async () => {
-    axios.get("http://localhost:3000/api")
-      .then((res) => { console.log(res.data); })
-      .catch((err) => { setError(err.message) })
-  }
+  // const fetchApi = async () => {
+  //   axios.get("http://localhost:3000/api/1")
+  //     .then((res) => { console.log(res.data); })
+  //     .catch((err) => { setError(err.message) })
+  // }
 
   return (
     <div className="p-3">
