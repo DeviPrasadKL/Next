@@ -11,7 +11,7 @@ export default function Page() {
     const [error, setError] = useState(null);
     const [offset, setOffset] = useState(0);
 
-    const fetchData = (offset = 0, limit = 100) => {
+    const fetchData = (offset = 0, limit = 18) => {
         setIsPending(true);
         setError(null);
 
