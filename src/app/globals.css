@@ -31,3 +31,32 @@ body {
     text-wrap: balance;
   }
 }
+
+.customFlex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Spinner.css */
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensures the spinner takes up full height of its container */
+}
+
+.spinner {
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #7983ff; /* Color of the spinner */
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite; /* Animation for spinning effect */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
