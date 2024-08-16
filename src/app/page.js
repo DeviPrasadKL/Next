@@ -29,13 +29,13 @@ export default function Home() {
         </div>
       </div>
 
-      <Link href="/fetch" className="md:mb-2">
+      <Link href="/fetch" className="max-sm:mb-2">
         <button type="submit" className="btn">Fetch Page</button>
       </Link>
-      <Link href="/crud" className="p-2 mb-4 border border-gray-300 rounded-lg hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+      <Link href="/crud" className="p-2 max-sm:mb-2 max-md:mb-2 border border-gray-300 rounded-lg hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
         <button>CRUD Opearations</button>
       </Link>
-      <Link href="/pokemon" className="p-2 mb-4 border border-gray-300 rounded-lg hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+      <Link href="/pokemon" className="p-2 max-sm:mb-4 max-md:mb-4 border border-gray-300 rounded-lg hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
         <button>Pokemon</button>
       </Link>
 

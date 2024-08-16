@@ -10,7 +10,9 @@ export default function Page() {
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
     const [offset, setOffset] = useState(0);
+    let logo = "https://i.pinimg.com/736x/5f/79/61/5f7961c913263cd7a5d85b93e1c99b8b.jpg"
 
+    // Function to fetch data from API
     const fetchData = (offset = 0, limit = 18) => {
         setIsPending(true);
         setError(null);
@@ -36,18 +38,30 @@ export default function Page() {
     };
 
     useEffect(() => {
-        fetchData();
+        const offsetLocal = localStorage.getItem('offset');
+        if (offsetLocal !== null) {
+            setOffset(Number(offsetLocal));
+        }
+        fetchData(Number(offsetLocal) || 0);
     }, []);
 
+    // Function to handle next button click
     const handleNextClick = () => {
-        setOffset(offset + 10);
-        fetchData(offset + 10);
+        const newOffset = offset + 18;
+        setOffset(newOffset);
+        fetchData(newOffset);
+        localStorage.setItem('offset', newOffset);
     };
 
+    // Function to handle previous button click
     const handlePreviousClick = () => {
         if (offset >= 10) {
-            setOffset(offset - 10);
-            fetchData(offset - 10);
+            const newOffset = offset - 18;
+            if (newOffset >= 0) {
+                setOffset(newOffset);
+                fetchData(newOffset);
+                localStorage.setItem('offset', newOffset);
+            }
         }
     };
 
@@ -64,15 +78,19 @@ export default function Page() {
                 </div>
             )}
             {!isPending && (
-                <div className='flex items-center justify-center flex-row flex-wrap gap-4 pointer m-4'>
-                    <Card apiData={apiData} />
+                <div className='customFlex flex-col'>
+                    <img src={logo} className='h-[6rem]' />
+                    <div className='flex items-center justify-center flex-row flex-wrap gap-4 pointer m-4'>
+                        <Card apiData={apiData} />
+                    </div>
                 </div>
             )}
             {!isPending && (
-                <div className='flex justify-center mt-4'>
+                <div className='flex justify-center items-center gap-4 mt-4'>
                     <button
                         className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2'
                         onClick={handlePreviousClick}
+                        disabled={offset == 0}
                     >
                         Previous
                     </button>
@@ -82,6 +100,9 @@ export default function Page() {
                     >
                         Next
                     </button>
+                    <p>
+                    offset = {offset}
+                    </p>
                 </div>
             )}
         </>

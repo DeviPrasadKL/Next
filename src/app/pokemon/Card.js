@@ -15,7 +15,7 @@ export default function Card({ apiData }) {
                 apiData.map((pokemon) => (
                     <button
                         key={pokemon.name}
-                        className='border-2 border-slate-500 p-4 rounded-lg min-w-52'
+                        className='border-2 border-slate-500 p-4 rounded-lg min-w-52 bg-gradient-to-r from-teal-800'
                         onClick={() => {
                             sendUrl(pokemon.id);
                         }}
