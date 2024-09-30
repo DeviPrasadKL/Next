@@ -15,7 +15,7 @@ export default function Page() {
     let formObj = Object.fromEntries(form.entries());
     const { title, desc } = formObj;
     if (title !== "" && desc !== "") {
-      axios.post("https://main.d36k059eagzoi1.amplifyapp.com/", formObj)
+      axios.post("https://main.d36k059eagzoi1.amplifyapp.com/api", formObj)
         .then((res) => {
           console.log("Data added!!!");
           router.push("/crud");

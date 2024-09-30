@@ -9,7 +9,7 @@ export default function page({ params }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://main.d36k059eagzoi1.amplifyapp.com/${params.id}`)
+    axios.get(`https://main.d36k059eagzoi1.amplifyapp.com/api${params.id}`)
       .then((res) => {
         console.log(res.data);
         setData(res.data);
