@@ -9,7 +9,7 @@ export default function Page() {
   const [pending, setPending] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api")
+    axios.get("https://main.d36k059eagzoi1.amplifyapp.com/")
       .then((res) => {
         console.log(res.data);
         setData(res.data); setPending(false);
@@ -17,7 +17,7 @@ export default function Page() {
   }, [pending])
 
   const deleteItem = (id) => {
-    axios.delete(`http://localhost:3000/api/${id}`)
+    axios.delete(`https://main.d36k059eagzoi1.amplifyapp.com/${id}`)
       .then((res) => {
         console.log(res);
         setPending(true);

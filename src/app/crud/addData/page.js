@@ -7,6 +7,7 @@ import React from 'react'
 export default function Page() {
 
   const router = useRouter();
+  console.log(window.location.href);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,8 +15,7 @@ export default function Page() {
     let formObj = Object.fromEntries(form.entries());
     const { title, desc } = formObj;
     if (title !== "" && desc !== "") {
-      console.log(formObj);
-      axios.post("http://localhost:3000/api", formObj)
+      axios.post("https://main.d36k059eagzoi1.amplifyapp.com/", formObj)
         .then((res) => {
           console.log("Data added!!!");
           router.push("/crud");
