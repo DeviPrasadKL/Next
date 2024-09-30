@@ -7,7 +7,6 @@ import React from 'react'
 export default function Page() {
 
   const router = useRouter();
-  console.log(window.location.href);
 
   const handleSubmit = (e) => {
     e.preventDefault();
