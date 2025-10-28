@@ -29,7 +29,7 @@ jobs:
         with:
           context: .
           file: Dockerfile
-          push: true
+          push: false
           tags: |
             my-dockerhub-username/my-image-name:latest
             my-dockerhub-username/my-image-name:${{ github.sha }}
